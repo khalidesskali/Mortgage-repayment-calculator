@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Mortgage repayment calculator</title>
+    <!-- CSS & Tailwind & Font Awesome files -->
+    <link rel="stylesheet" href="../src/input.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="min-h-screen grid place-content-center bg-slate-100">
+    <div class="container mx-auto bg-white flex max-lg:flex-col">
+      <div class="calc p-10">
+        <div class="head flex items-center justify-between mb-10">
+          <h1 class="font-bold text-xl text-s900">Mortgage Calculator</h1>
+          <button
+            class="underline cursor-pointer text-sm text-s500 hover:text-bold hover:text-slate-900 duration-300"
+          >
+            Clear All
+          </button>
+        </div>
+        <label class="block font-medium text-sm text-slate-500 mb-3">
+          Mortgage Amount
+        </label>
+        <div class="amount relative mb-5">
+          <input
+            type="number"
+            name="amount"
+            class="focus:outline-none w-full rounded-md font-bold text-slate-900 hover:border-slate-700 focus:border-lime"
+          />
+          <i
+            class="fa-solid fa-sterling-sign absolute top-1/2 flex items-center justify-center bg-slate-100 text-slate-700"
+          ></i>
+        </div>
+        <span class="error font-medium text-error">This field is required</span>
+        <div
+          class="rules flex items-center justify-between gap-5 mb-5 max-sm:flex-col"
+        >
+          <div class="term relative flex flex-col max-sm:w-full">
+            <label class="block font-medium text-slate-500 mb-3">
+              Mortgage Term
+            </label>
+            <div class="relative">
+              <input
+                type="number"
+                class="focus:outline-none rounded-md font-bold text-slate-900 terms"
+              />
+              <span
+                class="absolute right-0 top-1/2 font-bold text-slate-700 bg-slate-100"
+                >years</span
+              >
+            </div>
+            <div class="error error-rule font-medium text-error">
+              This field is required
+            </div>
+          </div>
+          <div class="rate flex flex-col max-sm:w-full">
+            <label class="block font-medium text-slate-500 mb-3">
+              Interest Rate
+            </label>
+            <div class="relative">
+              <input
+                type="number"
+                class="focus:outline-none rounded-md font-bold text-slate-900 rates"
+              />
+              <span
+                class="absolute right-0 top-1/2 font-bold text-slate-700 bg-slate-100"
+                >%</span
+              >
+            </div>
+            <div class="error error-rule font-medium text-error">
+              This field is required
+            </div>
+          </div>
+        </div>
+        <div class="types">
+          <span class="block font-medium text-slate-500 mb-3">
+            Mortgage Type
+          </span>
+          <div class="type rounded-md mb-3 duration-300 hover:border-lime">
+            <label class="custom-radio flex items-center cursor-pointer">
+              <input type="radio" name="type" id="rad" class="hidden" />
+              <span
+                class="radio-btn rounded-full relative after:content-[''] after:duration-300 after:absolute after:top-1/2 after:left-1/2 after:bg-lime after:rounded-full after:opacity-0 after:w-3 after:h-3"
+              ></span>
+              <label
+                for="rad"
+                class="font-bold ml-3 text-slate-900 cursor-pointer"
+                >Repayment</label
+              >
+            </label>
+          </div>
+          <div class="type rounded-md mb-3 duration-300 hover:border-lime">
+            <label class="custom-radio flex items-center cursor-pointer">
+              <input type="radio" name="type" id="int" class="hidden" />
+              <span
+                class="radio-btn rounded-full relative after:content-[''] after:duration-300 after:absolute after:top-1/2 after:left-1/2 after:bg-lime after:rounded-full after:opacity-0 after:w-3 after:h-3"
+              ></span>
+              <label
+                for="int"
+                class="font-bold ml-3 text-slate-900 cursor-pointer"
+                >Interest Only</label
+              >
+            </label>
+          </div>
+        </div>
+        <div class="error error-rule font-medium text-error">
+          This field is required
+        </div>
+        <div
+          class="button flex gap-5 mt-10 bg-lime font-bold text-slate-900 w-fit cursor-pointer duration-300"
+        >
+          <img
+            src="../mortgage-repayment-calculator-main/assets/images/icon-calculator.svg"
+            alt=""
+          />
+          Calculate Repayments
+        </div>
+      </div>
+      <div class="show bg-slate-700 p-10 max-lg:rounded-none">
+        <div
+          class="result flex items-center justify-center flex-col text-white text-center h-full"
+        >
+          <img
+            src="../mortgage-repayment-calculator-main/assets/images/illustration-empty.svg"
+            alt=""
+          />
+          <h1 class="font-bold text-2xl mb-5">Results shown here</h1>
+          <p class="text-slate-300">
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </p>
+        </div>
+        <div class="price hidden">
+          <h1 class="text-white font-bold text-2xl mb-5">Your results</h1>
+          <p class="text-slate-300 mb-6">
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate
+            repayments” again.
+          </p>
+          <div class="card bg-slate-900 text-white rounded-md p-8">
+            <div class="monthly">
+              <span class="block text-slate-300 mb-4"
+                >Your monthly repayments</span
+              >
+              <div class="relative o1 mb-8">
+                <span class="icon text-lime text-5xl font-bold"
+                  ><i
+                    class="fa-solid fa-sterling-sign"
+                    style="font-size: 45px"
+                  ></i
+                ></span>
+                <span class="text-lime f-50 font-bold number"> 1,797.74</span>
+              </div>
+            </div>
+            <div class="total">
+              <span class="block mb-3 text-slate-300"
+                >Total you'll repay over the term</span
+              >
+              <i class="fa-solid fa-sterling-sign" style="font-size: 20px"></i>
+              <span class="font-bold text-white" style="font-size: 22px">
+                539,322.94</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

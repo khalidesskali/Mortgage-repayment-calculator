@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --lime: #d7da2f;
+    --red: #d73328;
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+  }
+  .f-50 {
+    font-size: 50px;
+  }
+  .f-15 {
+    font-size: 15px;
+  }
+  html {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  body {
+    padding: 30px;
+  }
+  .container {
+    border-radius: 15px;
+    padding-inline: 16px;
+    margin-inline: auto;
+  }
+  .amount i {
+    transform: translateY(-50%);
+    left: 1px;
+    height: 94%;
+    padding: 10px;
+    width: 40px;
+    border-radius: 6px 0 0 6px;
+  }
+  .amount input {
+    font-size: 17px;
+    padding: 10px 10px 10px 50px;
+    border: 1px solid var(--slate-500);
+  }
+  .amount input:focus + i {
+    background-color: var(--lime);
+  }
+  .rules > div input {
+    font-size: 17px;
+    padding: 10px;
+    border: 1px solid var(--slate-500);
+    width: 200px;
+  }
+  .rules > div span {
+    transform: translateY(-50%);
+    padding: 10px;
+    right: 1px;
+    height: 94%;
+    border-radius: 0 6px 6px 0;
+  }
+  .types .type {
+    border: 1px solid var(--slate-500);
+    padding: 10px;
+  }
+  .button {
+    border-radius: 50px;
+    padding: 15px 25px;
+  }
+  .button:hover {
+    background: rgb(215 218 47 / 50%);
+  }
+  .show {
+    border-radius: 0px 15px 15px 60px;
+  }
+  .show .result p {
+    max-width: 415px;
+  }
+  /* Remove the increment arrows from inputs in Chrome */
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  .custom-radio .radio-btn {
+    width: 25px;
+    height: 24px;
+    border: 2px solid var(--slate-700);
+  }
+  .custom-radio input[type="radio"]:checked + .radio-btn {
+    border: 2px solid var(--lime);
+  }
+  .custom-radio input[type="radio"]:checked {
+    border: 2px solid var(--lime);
+  }
+  .custom-radio .radio-btn::after {
+    transform: translate(-50%, -50%);
+  }
+  .custom-radio input[type="radio"]:checked + .radio-btn::after {
+    opacity: 1;
+  }
+  .error {
+    margin-top: -5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: none;
+  }
+  .error-rule {
+    margin-top: 15px;
+  }
+  .price .card {
+    border-top: 4px solid var(--lime);
+  }
+  .price > p {
+    max-width: 400px;
+    font-size: 15px;
+  }
+  .o1::after {
+    content: "";
+    background: var(--slate-900);
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+  }
+  @media (max-width: 640px) {
+    .rules > div input {
+      width: 100%;
+    }
+  }
+}
